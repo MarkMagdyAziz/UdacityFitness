@@ -1,6 +1,6 @@
 import { RECEIVE_ENTRIES, ADD_ENTRY } from "./actionTypes";
 
-export function receiveEntry(entries) {
+export function receiveEntries(entries) {
   return {
     type: RECEIVE_ENTRIES,
     entries,

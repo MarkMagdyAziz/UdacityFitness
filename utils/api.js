@@ -1,5 +1,11 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { CALENDAR_STORAGE_KEY } from "./_calendar";
+import { CALENDAR_STORAGE_KEY, formatCalendarResults } from "./_calendar";
+
+// function fetch Caldendar Results from fake Database ,
+// then return Format Caldendar Results which is coming from calendar file
+export const fetchCalendarResults = () => {
+  return AsyncStorage.getItem(CALENDAR_STORAGE_KEY).then(formatCalendarResults);
+};
 
 export const submitEntry = async ({ entry, key }) => {
   try {

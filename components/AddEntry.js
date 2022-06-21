@@ -67,7 +67,7 @@ class AddEntry extends Component {
   };
   submit = () => {
     const key = timeToString();
-    const entry = this.state;
+    const entry = [this.state];
     // Todo: Update Redux
     this.props.dispatch(addEntry({ [key]: entry }));
     // Todo: Navigate to home
@@ -96,7 +96,7 @@ class AddEntry extends Component {
     const metaInfo = getMetricMetaInfo();
     if (this.props.alreadyLogged) {
       return (
-        <View>
+        <View style={styles.center}>
           <Ionicons
             name={
               Platform.OS === "ios" ? "ios-happy-outline" : "md-happy-outline"
@@ -104,7 +104,9 @@ class AddEntry extends Component {
             size={100}
           />
           <Text>You already logged your information for today.</Text>
-          <TextButton onPress={this.reset}>Reset</TextButton>
+          <TextButton onPress={this.reset} style={{ padding: 10 }}>
+            Reset
+          </TextButton>
         </View>
       );
     }
@@ -143,7 +145,7 @@ class AddEntry extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 15,
     backgroundColor: white,
   },
   row: {
@@ -159,7 +161,7 @@ const styles = StyleSheet.create({
     marginLeft: 40,
     marginRight: 40,
   },
-  AndroidSubmitBtn: {
+  androidSubmitBtn: {
     backgroundColor: purple,
     padding: 10,
     paddingLeft: 30,
